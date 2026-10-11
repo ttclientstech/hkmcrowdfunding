@@ -44,21 +44,32 @@ const PaymentModal = ({
     return (
         <Box
             position={"fixed"}
-            w={["100%", "77%"]}
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            w={"100vw"}
             h={"100vh"}
-            overflow={"hidden"}
-            bgColor={"rgb(0,0,0,0.6)"}
-            zIndex={10}
+            overflowY={"auto"}
+            bgColor={"rgba(0, 0, 0, 0.65)"}
+            backdropFilter="blur(4px)"
+            zIndex={120}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
+            p={["0.75rem", "1rem"]}
         >
             <Box
-                w={["95%", "95%", "95%", "70%", "45%"]}
-                mt={"0rem"}
-                borderRadius={"10px"}
+                w={["100%", "90%", "550px"]}
+                maxW={"550px"}
+                my={"auto"}
+                borderRadius={"12px"}
                 bgColor={"white"}
-                h={"auto"}
+                boxShadow="2xl"
+                overflow="hidden"
+                maxH={"90vh"}
+                display="flex"
+                flexDirection="column"
             >
                 <HStack
                     w={"100%"}
@@ -81,8 +92,9 @@ const PaymentModal = ({
                 <Box
                     w={"90%"}
                     mx={"auto"}
-                    overflow={"hidden"}
-                    transition="height 0.3s ease-in-out"
+                    p={["0.5rem", "1rem"]}
+                    overflowY={"auto"}
+                    maxH={"75vh"}
                 >
                     <form onSubmit={debouncedHandleSubmit}>
                         <Input

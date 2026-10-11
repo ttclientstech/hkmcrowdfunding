@@ -63,7 +63,7 @@ const HomePage = () => {
   }
 
   return (
-    <Box position={'relative'} maxWidth='1200px' display='flex' flexDirection='column' alignItems='center' >
+    <Box position={'relative'} w="100%" maxWidth='1200px' mx="auto" px={["0.5rem", "1rem", "1.5rem"]} display='flex' flexDirection='column' alignItems='center'>
       <HeadingBanner />
       <CampaignProgressDetails
         currentAmount={Number(campaignsData?.totalraisedamt) || 0}

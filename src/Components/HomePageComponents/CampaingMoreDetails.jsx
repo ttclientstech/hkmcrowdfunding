@@ -39,24 +39,24 @@ const CampaignMoreDetails = ({ campaign, getSingleUser, themeColor, handleImageE
             maxW={"1200px"}
             mx={"auto"}
             alignItems={"flex-start"}
-            gap={".5rem"}
+            gap={["1.5rem", "1.5rem", "2rem"]}
             flexDirection={[
                 "column-reverse",
                 "column-reverse",
                 "column-reverse",
                 "row",
             ]}
-            px={["", "", "", "2rem"]}
+            px={["0.75rem", "1rem", "1.5rem", "2rem"]}
         >
             <VStack
-                w={["95%", "95%", "80%", "60%"]}
+                w={["100%", "100%", "100%", "62%"]}
                 mx={"auto"}
                 gap={"1.5rem"}
-                my={"2rem"}
+                my={["1rem", "1.5rem", "2rem"]}
                 alignItems={"flex-start"}
             >
-                <Box w={"90%"} h={"auto"} mx={"auto"}>
-                    <Image w={"100%"} h={"100%"} src={campaign.front_view} />
+                <Box w={"100%"} h={"auto"} borderRadius="10px" overflow="hidden">
+                    <Image w={"100%"} h={"100%"} objectFit="cover" src={campaign.front_view} />
                 </Box>
 
                 {/* The Context */}
@@ -241,17 +241,18 @@ const CampaignMoreDetails = ({ campaign, getSingleUser, themeColor, handleImageE
             </VStack>
 
             <VStack
-                w={["95%", "95%", "80%", "40%"]}
+                w={["100%", "100%", "100%", "38%"]}
                 mx={"auto"}
                 bgColor={"#EDEAEA"}
-                py={"1rem"}
-                px={"1.2rem"}
-                my={"2rem"}
-                borderRadius={"10px"}
+                py={"1.2rem"}
+                px={["0.9rem", "1.2rem"]}
+                my={["1rem", "1.5rem", "2rem"]}
+                borderRadius={"12px"}
+                boxShadow="md"
                 gap={"10px"}
             >
-                <Box w={"100%"} fontWeight={"semibold"} fontSize={"1.5rem"}>
-                    Recent Contributers
+                <Box w={"100%"} fontWeight={"bold"} fontSize={["1.2rem", "1.4rem"]}>
+                    Recent Contributors
                 </Box>
                 {getSingleUser?.top10paymentDetails?.map((user, i) => (
                     <HStack

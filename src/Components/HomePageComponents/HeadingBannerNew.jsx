@@ -14,36 +14,37 @@ const HeadingBanner = () => {
         <Box w="100%" h="6px" bgGradient="linear(to-r, #D4AF37, #FFD700, #D4AF37)" />
         <Flex
             maxW="1200px"
+            w="100%"
             justifyContent='space-between'
             align="center"
             bg={bgColor}
-            h={["150px", "160px", "180px"]}
+            minH={["110px", "130px", "150px"]}
+            py={["0.75rem", "1rem"]}
             direction="row"
-            p='0px'
-            px={'20px'}
+            px={["10px", "15px", "20px"]}
             boxShadow="lg"
         >
             <Image
                 src={logo}
                 alt="Left Banner"
-                boxSize={["100px", "120px", "140px"]}
-                width={["150px", "170px", "190px"]}
-                border="2px"
-                _hover={{ transform: "scale(1.1)", transition: "0.3s" }}
+                boxSize={["70px", "90px", "120px"]}
+                objectFit="contain"
+                border="2px solid #D4AF37"
+                borderRadius="md"
+                _hover={{ transform: "scale(1.05)", transition: "0.3s" }}
             />
             <Box
-                width={'4px'}
-                height={["100px", "120px", "140px"]}
-                bg="black"
-                marginRight="10px"
-                marginLeft="10px"
+                width={["2px", "3px", "4px"]}
+                height={["70px", "90px", "120px"]}
+                bg="whiteAlpha.400"
+                marginRight={["8px", "12px", "16px"]}
+                marginLeft={["8px", "12px", "16px"]}
             />
             <Box textAlign="left" flex="1" >
-                <Text fontSize={["xs", "sm", "lg"]} fontWeight="bold" color={textColor} >
+                <Text fontSize={["2xs", "xs", "sm", "md"]} fontWeight="bold" color={textColor} lineHeight={["1.2rem", "1.4rem", "1.6rem"]}>
                     IF YOU BUILD A TEMPLE OF LORD KRISHNA IN THIS WORLD, KRISHNA WILL BUILD A PALACE FOR YOU IN THE SPIRITUAL WORLD - VAIKUNTHA
                 </Text>
             </Box>
-            
         </Flex>
         <Box w="100%" h="6px" bgGradient="linear(to-r, #D4AF37, #FFD700, #D4AF37)" />
         <Box display={"block"} marginBottom='5px' maxW="1200px" w="100%" mt="-1px" mb="8px" textAlign={"end"}>

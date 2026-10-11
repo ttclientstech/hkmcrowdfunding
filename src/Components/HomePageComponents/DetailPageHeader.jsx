@@ -19,16 +19,16 @@ const DetailPageHeader = ({ themeColor, getSingleUser, image16 }) => {
       w={"100%"}
       bgGradient={bgGradient}
       bg={'maroon'}
-      py={"2rem"}
-      px={["1.5rem", "2rem", "3rem"]}
+      py={["1.5rem", "2rem"]}
+      px={["1rem", "1.5rem", "3rem"]}
     >
       <Box w={"100%"} maxW={"1200px"} mx={"auto"} color={'white'}>
         <Text
           fontWeight={"bold"}
-          fontSize={["1rem", "1rem", "1.5rem"]}
-          w={["99%", "85%", "70%"]}
-          maxW={"650px"}
-          lineHeight={"2.2rem"}
+          fontSize={["1.05rem", "1.2rem", "1.4rem", "1.6rem"]}
+          w={["100%", "90%", "80%"]}
+          maxW={"750px"}
+          lineHeight={["1.6rem", "1.8rem", "2.2rem"]}
         >
           {getSingleUser?.campaignDetails?.campaignName}'s campaign to build a
           magnificent Dakshina Dwaraka Dham - The cultural complex to preserve and promote Indian heritage in

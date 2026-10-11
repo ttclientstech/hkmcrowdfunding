@@ -1,6 +1,7 @@
 {
   "name": " razor",
   "scripts": {
+    "start": "react-scripts start",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
     "build": "react-scripts build"

@@ -11,6 +11,8 @@ import {CountdownTimer} from '../Components/HomePageComponents/countdownConfetti
 
 import {
   Box,
+  Button,
+  Center,
   HStack,
   IconButton,
 } from "@chakra-ui/react";
@@ -33,12 +35,14 @@ import { FaArrowUp } from "react-icons/fa6";
 import Fotter from "../Components/HomePageComponents/Fotter";
 import { IskconBgColor, IskconFontColor } from "../Components/utils";
 import ProjectVedio from "../Components/HomePageComponents/ProjectVedio";
+import StickyDonateBar from "../Components/HomePageComponents/StickyDonateBar";
 
 const HomeSinglePage = () => {
   const { id } = useParams();
 
   const [tab, setTab] = useState(1);
   const [showScrollButton, setShowScrollButton] = useState(false);
+  const [showStickyBar, setShowStickyBar] = useState(false);
 
   const { isLoading, getSingleUser } = useSelector(
     (state) => state.clientUsers
@@ -81,10 +85,18 @@ const HomeSinglePage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      const scrollY = window.scrollY;
+      if (scrollY > 300) {
         setShowScrollButton(true);
       } else {
         setShowScrollButton(false);
+      }
+
+      // Show sticky donate bar once user scrolls past the top contribution box (~450px)
+      if (scrollY > 450) {
+        setShowStickyBar(true);
+      } else {
+        setShowStickyBar(false);
       }
     };
 
@@ -239,14 +251,16 @@ const HomeSinglePage = () => {
     <Box
       w={"100%"}
       position={"relative"}
+      pb={showStickyBar ? ["75px", "85px"] : 0}
       overflow={paymentModel ? "hidden" : "auto"}
     >
       <Box display='flex' alignItems='center' position={"fixed"}
-        zIndex={"10"}
+        zIndex={"110"}
         fontSize={"3rem"}
         cursor={"pointer"}
-        bottom={"4%"}
-        right={"2%"}>
+        bottom={showStickyBar ? ["85px", "95px"] : "4%"}
+        right={"2%"}
+        transition="bottom 0.3s ease">
         {/* Scroll to Top button */}
         {showScrollButton && (
           <IconButton
@@ -301,11 +315,11 @@ const HomeSinglePage = () => {
         w="100%"
         maxW="1200px"
         mx="auto"
-        my="2rem"
+        my={["1rem", "1.5rem", "2rem"]}
         alignItems="stretch"
-        spacing={["2rem", "2rem", "1rem", "2rem"]}
+        spacing={["1.5rem", "1.5rem", "1.5rem", "2rem"]}
         flexDirection={["column", "column", "row"]}
-        px={["", "", "1rem", "2rem", ""]}
+        px={["0.75rem", "1rem", "1.5rem", "2rem"]}
       >
         <PhotoWithDescription getSingleUser={getSingleUser} imageError={imageError} handleImageError={handleImageError} />
 
@@ -335,7 +349,49 @@ const HomeSinglePage = () => {
       )}
         <ProjectVedio />
 
+      <Center my={10}>
+        <Button
+          h="55px"
+          px="3.5rem"
+          background={IskconBgColor}
+          color={IskconFontColor}
+          fontWeight="bold"
+          fontSize={["lg", "xl", "2xl"]}
+          boxShadow="xl"
+          borderRadius="md"
+          _hover={{ transform: "scale(1.03)", opacity: 0.95 }}
+          transition="all 0.2s"
+          onClick={() => {
+            const el = document.getElementById("progress-box");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+            if (amount && amount >= 500) {
+              handleClick();
+            }
+          }}
+        >
+          DONATE NOW
+        </Button>
+      </Center>
+
       <Fotter />
+
+      {/* Persistent Floating Sticky Donate Bar */}
+      {showStickyBar && (
+        <StickyDonateBar
+          getSingleUser={getSingleUser}
+          onDonateClick={() => {
+            const el = document.getElementById("progress-box");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+            if (amount && amount >= 500) {
+              handleClick();
+            }
+          }}
+        />
+      )}
     </Box>
   );
 };

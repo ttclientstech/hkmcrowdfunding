@@ -3,30 +3,40 @@ import React from 'react';
 
 const PhotoWithDescription = ({ imageError, avatar, getSingleUser, handleImageError }) => {
     return (
-        <Box w={["97%", "97%", "97%", "50%"]} mx={"auto"}>
+        <Box w={["100%", "100%", "50%"]} mx={"auto"}>
             <Box
                 w="100%"
-                h={["400px", "450px", "400px", "400px", "500px"]}
+                borderRadius="12px"
                 overflow="hidden"
+                boxShadow="md"
+                bg="white"
             >
-            <Text
+                <Text
                   as="h2"
-                  fontSize={["xl", "2xl", "2xl", "3xl"]}
+                  fontSize={["lg", "xl", "2xl", "2xl"]}
                   fontWeight="bold"
                   textAlign="center"
-                  mb="0.5rem"
+                  py="0.75rem"
+                  px="1rem"
                   color="#2E2E2E"
                   fontFamily="'Merriweather', serif"
+                  borderBottom="1px solid #f0f0f0"
                 >
                   Sri {getSingleUser?.campaignDetails?.campaignName}
                 </Text>
-                <Image
-                    w="100%"
-                    h="100%"
-                    objectFit="cover"
-                    src={imageError ? avatar : getSingleUser?.campaignDetails?.imgurl}
-                    onError={handleImageError}
-                />
+                <Box
+                  w="100%"
+                  h={["280px", "360px", "380px", "450px"]}
+                  overflow="hidden"
+                >
+                    <Image
+                        w="100%"
+                        h="100%"
+                        objectFit="cover"
+                        src={imageError ? avatar : getSingleUser?.campaignDetails?.imgurl}
+                        onError={handleImageError}
+                    />
+                </Box>
             </Box>
             <Box
             textAlign="justify"

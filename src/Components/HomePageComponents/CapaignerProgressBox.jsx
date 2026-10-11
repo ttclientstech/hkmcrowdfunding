@@ -43,26 +43,27 @@ const CapaignerProgressBox = ({
         };
     return (
         <Box
-            w={["97%", "97%", "97%", "50%"]}
+            id="progress-box"
+            w={["100%", "100%", "50%"]}
             mx={"auto"}
             border="2px solid rgba(0, 0, 0, 0.1)"
-            p="1rem"
+            p={["0.75rem", "1rem"]}
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
             boxShadow="lg"
-            borderRadius="md"
+            borderRadius="12px"
             bg="white"
         >
             <Box
                 bgColor={IskconBgColor}
                 color={IskconFontColor}
-                py="1.5rem"
-                px="2rem"
+                py={["1.2rem", "1.5rem"]}
+                px={["1rem", "1.5rem", "2rem"]}
                 display="flex"
                 flexDirection="column"
                 justifyContent="space-between"
-                borderRadius="md"
+                borderRadius="10px"
             >
 
                 <Flex justifyContent="space-between" alignItems="center">
@@ -193,7 +194,7 @@ const CapaignerProgressBox = ({
                             ) === 100
                         }
                     >
-                        CONTRIBUTE
+                        DONATE NOW
                     </Button>
                     <Box fontWeight={"bold"} color={"red.500"}>
                         {errorMessage}

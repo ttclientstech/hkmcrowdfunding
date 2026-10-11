@@ -62,50 +62,44 @@ const CampaignProgressDetails = ({ currentAmount, goalAmount }) => {
     <Box
       w={'100%'}
       mx="auto"
-      borderRadius="10px"
-      px={'10px'}
-      py={'5px'}
+      borderRadius="12px"
+      px={['1rem', '1.5rem', '2rem']}
+      py={['1rem', '1.2rem', '1.5rem']}
       bgColor="#FAF3E0"
       boxShadow="dark-lg"
-      marginBottom="10px"
-      border="6px solid #D4AF37"
-      borderColor="transparent"
+      marginBottom="15px"
+      border="4px solid #D4AF37"
       animation={`${borderAnimation} 3s infinite`}
       textTransform='uppercase'
     >
-      <Flex direction={["column", "column", "row"]} align="center" justify="space-between">
-        <Stack
-          direction={["column", "column", "row"]}
-          spacing={["0.2rem", "1rem"]}
-          align="center"
-        >
-          <VStack align={["center", "center", "flex-start"]} marginLeft={["0", "0", "3rem"]}>
-            <Flex align="center" gap={2} color={'#3B2F2F'} fontSize={["1.5rem", "2rem", "2rem"]}>
-              <Box fontWeight="semibold">Goal:</Box>
-              <Box fontWeight="semibold">{formatCurrency(goalAmount)}</Box>
-            </Flex>
+      <Flex direction={["column", "column", "row"]} align="center" justify="space-between" gap={["1.5rem", "1.5rem", "1rem"]}>
+        <VStack align={["center", "center", "flex-start"]} spacing={1}>
+          <Flex align="center" gap={2} color={'#3B2F2F'} fontSize={["1.1rem", "1.4rem", "1.6rem"]}>
+            <Box fontWeight="semibold">Goal:</Box>
+            <Box fontWeight="extrabold">{formatCurrency(goalAmount)}</Box>
+          </Flex>
 
-            <HStack alignItems="baseline" color={'#B22222'}>
-              <Box fontSize={["2rem", "2.2rem", "2.5rem"]} fontWeight="bold">
-                ₹<CountUp end={currentAmount} start={currentAmount / 2} useIndianSeparators={true} />
-              </Box>
-              <Box fontSize={["1.2rem", "1.3rem", "1.5rem"]} fontWeight="bold">
-                Achieved
-              </Box>
-            </HStack>
-          </VStack>
-        </Stack>
-        <Box display="flex" alignItems="center" justifyContent="center">
+          <HStack alignItems="baseline" color={'#B22222'}>
+            <Box fontSize={["1.8rem", "2.2rem", "2.5rem"]} fontWeight="bold">
+              ₹<CountUp end={currentAmount} start={currentAmount / 2} useIndianSeparators={true} />
+            </Box>
+            <Box fontSize={["1rem", "1.2rem", "1.3rem"]} fontWeight="bold">
+              Achieved
+            </Box>
+          </HStack>
+        </VStack>
+
+        <Box display="flex" alignItems="center" justifyContent="center" my={["0.5rem", "0.5rem", 0]}>
           <CircularProgress
             value={progress}
-            size={["100px", "130px", "150px"]}
+            size={["110px", "130px", "140px"]}
             thickness="10px"
             color={'#3B2F2F'}
             trackColor={trackColor}
             capIsRound={true}
           >
             <CircularProgressLabel
-              fontSize={["1rem", "1.2rem", "1.5rem"]}
+              fontSize={["1.1rem", "1.2rem", "1.4rem"]}
               fontWeight="bold"
               color={'#B22222'}
             >
@@ -114,11 +108,11 @@ const CampaignProgressDetails = ({ currentAmount, goalAmount }) => {
           </CircularProgress>
         </Box>
 
-        <VStack align={["center", "center", "flex-start"]} mt={[4, 4, "-1rem"]} marginRight={["0", "0", "3rem"]}>
-          <Box fontSize={["1.5rem", "2rem", "2.3rem"]} fontWeight="bold" color={'#B22222'}>
+        <VStack align={["center", "center", "flex-end"]} textAlign={["center", "center", "right"]}>
+          <Box fontSize={["1.2rem", "1.6rem", "1.8rem"]} fontWeight="extrabold" color={'#B22222'} lineHeight="1.2">
             Mandir Nirmana Seva
           </Box>
-          <Box fontSize={["1rem", "1.2rem", "1.5rem"]}   fontWeight="bold" color={'#B22222'} mt={2}>
+          <Box fontSize={["0.9rem", "1rem", "1.1rem"]} fontWeight="bold" color={'#B22222'} mt={1}>
             Be a Part of This Legacy
           </Box>
         </VStack>

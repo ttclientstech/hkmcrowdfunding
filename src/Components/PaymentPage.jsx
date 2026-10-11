@@ -143,9 +143,10 @@ console.log(orderConfirmId);
           alignItems="center"
           bg="white"
           p={6}
-          borderRadius="md"
-          boxShadow="lg"
-          w={'350px'}
+          borderRadius="12px"
+          boxShadow="2xl"
+          w={["95%", "90%", "480px"]}
+          maxW="520px"
           animation="borderAnimation 2s infinite"
           position="relative"
           _before={{
@@ -192,9 +193,10 @@ console.log(orderConfirmId);
           alignItems="center"
           bg="white"
           p={6}
-          borderRadius="md"
-          boxShadow="lg"
-          w={'350px'}
+          borderRadius="12px"
+          boxShadow="2xl"
+          w={["95%", "90%", "480px"]}
+          maxW="520px"
           position="relative"
           border="2px solid"
           borderColor="red.500"

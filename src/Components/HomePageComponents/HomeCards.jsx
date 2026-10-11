@@ -4,6 +4,7 @@ import {
   Card,
   CardBody,
   CardFooter,
+  Flex,
   HStack,
   Image,
   Input,
@@ -69,26 +70,38 @@ const HomeCards = ({
 
     >
       <Box w="100%">
-        <Box mx="auto" textAlign="center" mb={1} mt={3} display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
-          <HStack justifyContent="center" fontWeight="900" color={IskconBgColor} fontSize={["0.7rem", "1rem", "1.6rem", "1.8rem"]}>
-            <Box marginLeft={"12px"}>CAMPAIGNERS JOINED:</Box>
-            <Box>
+        <Flex
+          mx="auto"
+          mb={4}
+          mt={2}
+          px={["4px", "8px"]}
+          direction={["column", "column", "row"]}
+          justifyContent="space-between"
+          alignItems="center"
+          gap={3}
+        >
+          <HStack fontWeight="900" color={IskconBgColor} fontSize={["0.95rem", "1.1rem", "1.4rem", "1.6rem"]}>
+            <Box>CAMPAIGNERS JOINED:</Box>
+            <Badge
+              colorScheme="purple"
+              fontSize={["0.9rem", "1.1rem", "1.3rem"]}
+              px={3}
+              py={1}
+              borderRadius="full"
+            >
               {totalCampaigners}
-            </Box>
+            </Badge>
           </HStack>
           <Input
-            w={['150px', '150px', '200px', '250px']}
-            h={['30px', '40px', '40px', '40px']}
+            w={['100%', '100%', '280px', '320px']}
+            h={['42px', '42px', '44px']}
             type="text"
-            marginRight={"12px"}
-            placeholder="Search campaigners"
-            fontSize={["0.9rem", "1rem", "1.2rem", "1.2em"]}
-            style={{
-              padding: "0.5rem",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-              marginTop: ["1rem", "1rem", "0", "0"]
-            }}
+            placeholder="Search campaigners..."
+            fontSize={["0.95rem", "1rem"]}
+            borderRadius="8px"
+            border="2px solid #ccc"
+            focusBorderColor="#d481f0"
+            px="1rem"
             onChange={handleSearchChange}
             onFocus={async () => {
               if (allCampaignersLength) return;
@@ -101,10 +114,9 @@ const HomeCards = ({
               } finally {
                 setIsLoading(false);
               }
-
             }}
           />
-        </Box>
+        </Flex>
         {campaigns?.length > 0 ? (
           <InfiniteScroll
             dataLength={campaigns.length}
@@ -118,11 +130,11 @@ const HomeCards = ({
             }
           >
             <SimpleGrid
-              columns={[1, 1, 2, 2, 3, 4]}
-              spacing={[2, 2, 2, 2, 2]}
+              columns={[1, 2, 2, 3, 4]}
+              spacing={[4, 4, 4, 5]}
               w="100%"
               mx="auto"
-              p="10px"
+              p={["4px", "8px", "12px"]}
             >
               {filteredSearch(campaigns, searchQuery)?.map((user, i) => (
                 <Link key={user.campaignId} to={`/single/${user.campaignId}`}>
